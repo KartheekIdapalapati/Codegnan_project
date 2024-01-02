@@ -53,16 +53,16 @@ def predict(Place,Area,Status,Rooms,Bathrooms,Facing,P_Type):
 if __name__ == "__main__":
     st.header("House Price Prediction module")
     col1, col2 = st.columns([2, 1])
-    bed = col1.slider("No.of Bedrooms",max_value=10,min_value=1,
+    Rooms = col1.slider("No.of Bedrooms",max_value=10,min_value=1,
                       value=2)
-    bath = col1.slider("No.of Bathrooms",max_value=10,min_value=0,
+    Bathrooms = col1.slider("No.of Bathrooms",max_value=10,min_value=0,
                        value=2)
-    loc = col1.selectbox("Select a Location",list(location_mapping.keys()))
-    size = col1.number_input("Area",max_value=10000,
+    Place = col1.selectbox("Select a Location",list(location_mapping.keys()))
+    Area = col1.number_input("Area",max_value=10000,
                              min_value = 500,value=1000,step=500)
-    status = col1.selectbox("Select the Status",list(status_mapping.keys()))
-    facing = col1.selectbox("Select a Facing",list(direction_mapping.keys()))
-    Type = col1.selectbox("Select Property Type",
+    Status = col1.selectbox("Select the Status",list(status_mapping.keys()))
+    Facing = col1.selectbox("Select a Facing",list(direction_mapping.keys()))
+    P_Type = col1.selectbox("Select Property Type",
                           list(property_type_mapping.keys()))
     result = predict(Place,Area,Status,Rooms,Bathrooms,Facing,P_Type)
     submit_button = st.button("Submit")
